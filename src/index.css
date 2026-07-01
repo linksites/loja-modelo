@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #f6f5f2;
+  color: #14161c;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: 'Sora', system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Seleção de texto na cor da marca */
+::selection {
+  background: #ff5a3c;
+  color: #ffffff;
+}
+
+/* Foco visível e acessível na navegação por teclado */
+:focus-visible {
+  outline: 2px solid #ff5a3c;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Barra de rolagem discreta */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #ece9e2;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9c2b4;
+  border-radius: 999px;
+}
+
+/* Impede rolagem do fundo quando um overlay (drawer) está aberto */
+body.sem-scroll {
+  overflow: hidden;
+}
+
+/* ===== Acessibilidade: reduzir movimento ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee {
+    animation-name: marquee !important;
+    animation-duration: 40s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+  }
+}
